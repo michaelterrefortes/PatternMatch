@@ -1,3 +1,3 @@
 export const WEBPAGE_URL =
-  "https://colormatchweb.onrender.com/privacy-policy.html";
-export const EMAIL_SUPPORT = "colormatch.support@gmail.com";
+  "https://patternmatchweb.onrender.com/privacy-policy.html";
+export const EMAIL_SUPPORT = "mt.apps.support@gmail.com";

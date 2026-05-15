@@ -13,6 +13,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { WEBPAGE_URL } from "@/constants/url";
 import { BestScoreContext } from "@/context/BestScoreContext";
 import { getData, storeData } from "@/services/storage";
+import { useAudioPlayer } from "expo-audio";
+import * as Haptics from "expo-haptics";
 import { useRouter } from "expo-router";
 import { Dimensions } from "react-native";
 
@@ -33,6 +35,8 @@ let autoMoves = [];
 const colors = ["red", "blue", "green", "orange"];
 
 export default function Index() {
+  const playerButton = useAudioPlayer(require("../assets/audios/button.mp3"));
+  const playerWrong = useAudioPlayer(require("../assets/audios/wrong.mp3"));
   const [play, setPlay] = useState(false);
 
   const router = useRouter();
@@ -70,6 +74,16 @@ export default function Index() {
     green: false,
     orange: false,
   });
+
+  const playButtonSound = async () => {
+    await playerButton.seekTo(0);
+    playerButton.play();
+  };
+
+  const playWrongSound = async () => {
+    await playerWrong.seekTo(0);
+    playerWrong.play();
+  };
 
   const handleLink = useCallback(async () => {
     // Check if the link is supported
@@ -143,6 +157,8 @@ export default function Index() {
     } else {
       //console.log("Try again");
       setKeysDisabled(true);
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+      playWrongSound();
 
       if (best < level) {
         setBest(level);
@@ -188,7 +204,7 @@ export default function Index() {
                 fontWeight: "800",
               }}
             >
-              C
+              PA
             </Text>
 
             <Text
@@ -200,7 +216,7 @@ export default function Index() {
                 fontWeight: "800",
               }}
             >
-              O
+              TT
             </Text>
 
             <Text
@@ -212,7 +228,7 @@ export default function Index() {
                 fontWeight: "800",
               }}
             >
-              L
+              E
             </Text>
             <Text
               style={{
@@ -223,7 +239,7 @@ export default function Index() {
                 fontWeight: "800",
               }}
             >
-              OR
+              RN
             </Text>
           </View>
           <Text
@@ -490,7 +506,11 @@ export default function Index() {
           <View>
             <TouchableOpacity
               disabled={keysDisabled ? true : false}
-              onPress={() => setPlayerMoves((items) => [...items, "blue"])}
+              onPress={() => {
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                playButtonSound();
+                setPlayerMoves((items) => [...items, "blue"]);
+              }}
               style={[
                 styles.square,
                 { backgroundColor: "#2f6aee", opacity: opacity.blue ? 0.2 : 1 },
@@ -498,7 +518,11 @@ export default function Index() {
             />
             <TouchableOpacity
               disabled={keysDisabled ? true : false}
-              onPress={() => setPlayerMoves((items) => [...items, "red"])}
+              onPress={() => {
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                playButtonSound();
+                setPlayerMoves((items) => [...items, "red"]);
+              }}
               style={[
                 styles.square,
                 { backgroundColor: "#f63830", opacity: opacity.red ? 0.2 : 1 },
@@ -509,7 +533,11 @@ export default function Index() {
           <View>
             <TouchableOpacity
               disabled={keysDisabled ? true : false}
-              onPress={() => setPlayerMoves((items) => [...items, "orange"])}
+              onPress={() => {
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                playButtonSound();
+                setPlayerMoves((items) => [...items, "orange"]);
+              }}
               style={[
                 styles.square,
                 {
@@ -520,7 +548,11 @@ export default function Index() {
             />
             <TouchableOpacity
               disabled={keysDisabled ? true : false}
-              onPress={() => setPlayerMoves((items) => [...items, "green"])}
+              onPress={() => {
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                playButtonSound();
+                setPlayerMoves((items) => [...items, "green"]);
+              }}
               style={[
                 styles.square,
                 {
