@@ -1,2 +1,3 @@
-export const WEBPAGE_URL = "https://monivue.onrender.com/privacy-policy";
-export const EMAIL_SUPPORT = "monivue.support@gmail.com";
+export const WEBPAGE_URL =
+  "https://colormatchweb.onrender.com/privacy-policy.html";
+export const EMAIL_SUPPORT = "colormatch.support@gmail.com";
