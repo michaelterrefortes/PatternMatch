@@ -280,7 +280,7 @@ export default function Index() {
               }}
             >
               <SymbolView
-                name={"crown.fill"}
+                name={{ ios: "crown.fill", android: "crown" }}
                 size={18}
                 tintColor={"#f8bd32"}
                 style={{ marginBottom: 5, marginRight: 5 }}
@@ -329,7 +329,7 @@ export default function Index() {
             onPress={() => setPlay(true)}
           >
             <SymbolView
-              name={"play.fill"}
+              name={{ ios: "play.fill", android: "play_arrow" }}
               tintColor={"white"}
               style={{ marginRight: 10 }}
               size={20}
@@ -356,7 +356,11 @@ export default function Index() {
               borderRadius: 50,
             }}
           >
-            <SymbolView name={"gear"} tintColor={"white"} size={32} />
+            <SymbolView
+              name={{ ios: "gear", android: "settings" }}
+              tintColor={"white"}
+              size={32}
+            />
           </TouchableOpacity>
           <Text
             onPress={handleLink}
@@ -441,7 +445,7 @@ export default function Index() {
               }}
             >
               <SymbolView
-                name={"crown.fill"}
+                name={{ ios: "crown.fill", android: "crown" }}
                 size={30}
                 tintColor={"#f8bd32"}
                 style={{ marginBottom: 5, marginRight: 5 }}
@@ -599,7 +603,7 @@ export default function Index() {
             }}
           >
             <SymbolView
-              name={"house.fill"}
+              name={{ ios: "house.fill", android: "house" }}
               tintColor={"white"}
               style={{ marginRight: 10 }}
             />
@@ -633,7 +637,7 @@ export default function Index() {
               }}
             >
               <SymbolView
-                name={"arrow.clockwise"}
+                name={{ ios: "arrow.clockwise", android: "redo" }}
                 tintColor={"white"}
                 style={{ marginRight: 10 }}
               />
@@ -666,7 +670,7 @@ export default function Index() {
               }}
             >
               <SymbolView
-                name={"arrow.clockwise"}
+                name={{ ios: "arrow.clockwise", android: "redo" }}
                 tintColor={"white"}
                 style={{ marginRight: 10 }}
               />
